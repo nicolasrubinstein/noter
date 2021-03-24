@@ -57,6 +57,7 @@ const EDCont = ({
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            maxLength={25}
           />
         </div>
         <div className="important-quest">
