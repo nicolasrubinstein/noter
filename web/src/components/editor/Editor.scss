@@ -1,0 +1,109 @@
+.super-ed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  margin-top: 100px;
+}
+
+.ed-container {
+  background: rgb(255, 255, 255, 0.9);
+  // margin-top: 200px;
+  height: 520px;
+  // width: 80vw;
+
+  width: 80vw;
+  margin: 0 auto;
+
+  .close-form {
+    width: 100%;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: row-reverse;
+
+    img {
+      margin: 3px;
+      padding: 10px;
+      border-radius: 50%;
+      &:hover {
+        background: rgb(218, 216, 216);
+        cursor: pointer;
+      }
+    }
+  }
+
+  input {
+    width: 30vw;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 18px;
+    @media (max-width: 600px) {
+      width: 50vw;
+    }
+  }
+
+  .important-quest {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 20vw;
+
+    label {
+      font-size: 18px;
+    }
+    @media (max-width: 900px) {
+      width: 50vw;
+    }
+  }
+  .editor {
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    button {
+      width: 20vw;
+      height: 35px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+
+      @media (max-width: 600px) {
+        width: 30vw;
+      }
+    }
+    .btn-submit-edit {
+      background: orange;
+      &:hover {
+        background: rgb(175, 140, 73);
+        @media (max-width: 499px) {
+          background-color: orange;
+        }
+      }
+    }
+    .btn-submit-delete {
+      background: indianred;
+      &:hover {
+        background: rgb(141, 56, 56);
+        @media (max-width: 499px) {
+          background-color: indianred;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 95vw;
+  }
+}

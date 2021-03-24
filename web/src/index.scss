@@ -1,0 +1,17 @@
+@import "./const";
+
+* {
+  font-family: "Roboto", sans-serif !important;
+  box-sizing: border-box;
+}
+body {
+  @include background;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  outline: none;
+}

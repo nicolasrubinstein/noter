@@ -1,0 +1,27 @@
+.login-button {
+  outline: none;
+  margin-top: 50px;
+  background: white;
+  border: none;
+  width: 20vw;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+
+  @media (max-width: 874px) {
+    width: 50vw;
+  }
+}
+
+.container {
+  text-align: center;
+  height: 500px;
+  margin-top: 50px;
+}
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
