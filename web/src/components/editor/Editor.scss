@@ -42,6 +42,11 @@
     @media (max-width: 600px) {
       width: 50vw;
     }
+
+    @media (max-width: 499px) {
+      margin-top: 25px;
+      width: 80vw;
+    }
   }
 
   .important-quest {
