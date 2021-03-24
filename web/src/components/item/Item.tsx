@@ -19,7 +19,11 @@ const Item = ({ text, title, id, isImportant }: ItemProps) => {
 
   return (
     <div className="item-super">
-      <div className="item">
+      <div
+        className="item"
+        onClick={launchEditor}
+        style={{ cursor: "pointer" }}
+      >
         <div className="important">
           {isImportant && (
             <img src="assets/warning.png" alt="important" width="30" />
@@ -27,7 +31,7 @@ const Item = ({ text, title, id, isImportant }: ItemProps) => {
         </div>
 
         <h3>{title}</h3>
-        <button onClick={launchEditor}>
+        <button>
           <img src="assets/eye.png" alt="open" width="30" height="30" />
         </button>
       </div>
