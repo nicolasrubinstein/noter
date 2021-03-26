@@ -1,6 +1,8 @@
 import React from "react";
-import "./Item.scss";
 import useEditor from "../../context/Editor";
+import styled from "styled-components";
+import LaunchButton from "./LaunchButton";
+import Important from "./Important";
 
 interface ItemProps {
   text: string;
@@ -18,25 +20,43 @@ const Item = ({ text, title, id, isImportant }: ItemProps) => {
   };
 
   return (
-    <div className="item-super">
-      <div
-        className="item"
-        onClick={launchEditor}
-        style={{ cursor: "pointer" }}
-      >
-        <div className="important">
-          {isImportant && (
-            <img src="assets/warning.png" alt="important" width="30" />
-          )}
-        </div>
-
+    <ItemSuper>
+      <ItemStyled onClick={launchEditor}>
+        <Important isImportant={isImportant} />
         <h3>{title}</h3>
-        <button>
-          <img src="assets/eye.png" alt="open" width="30" height="30" />
-        </button>
-      </div>
-    </div>
+        <LaunchButton launch={launchEditor} />
+      </ItemStyled>
+    </ItemSuper>
   );
 };
+
+const ItemSuper = styled.li`
+  width: 100vw;
+  margin-left: -44px;
+`;
+
+const ItemStyled = styled.div`
+  margin: 0 auto;
+  cursor: pointer;
+  width: 70vw;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  border-left: 10px solid white;
+
+  &:hover {
+    border-left: 10px solid orange;
+
+    @media (max-width: 499px) {
+      border-left: 10px solid white;
+    }
+  }
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
+`;
 
 export default Item;

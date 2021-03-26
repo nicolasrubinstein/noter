@@ -4,8 +4,8 @@ import axios from "axios";
 import useLoggedIn from "../../context/LoggedIn";
 import useEditor from "../../context/Editor";
 import Entry from "../../interfaces/Entry";
-import "./List.scss";
 import Item from "../item/Item";
+import styled from "styled-components";
 
 const List = () => {
   const { userInfo }: any = useLoggedIn();
@@ -24,20 +24,24 @@ const List = () => {
   }, []);
 
   return (
-    <div className="list-container">
-      <ul>
-        {entries?.map((entry: Entry) => (
-          <Item
-            text={entry.text}
-            key={entry._id}
-            title={entry.title}
-            id={entry._id}
-            isImportant={entry.isImportant}
-          />
-        ))}
-      </ul>
-    </div>
+    <ListContainer>
+      {entries?.map((entry: Entry) => (
+        <Item
+          text={entry.text}
+          key={entry._id}
+          title={entry.title}
+          id={entry._id}
+          isImportant={entry.isImportant}
+        />
+      ))}
+    </ListContainer>
   );
 };
+
+const ListContainer = styled.ul`
+  list-style-type: none;
+  margin-top: 27px;
+  text-align: center;
+`;
 
 export default List;
