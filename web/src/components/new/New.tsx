@@ -43,6 +43,11 @@ const New = () => {
       url: `${url}/entries`,
     });
     await fetchEntries();
+    setNewEntry({
+      title: "",
+      text: "",
+      isImportant: false,
+    });
     setShowEditor(false);
     setIsEditorSaveLoading(false);
   };
