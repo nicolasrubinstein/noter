@@ -14,7 +14,7 @@
       <li>Typescript React (.tsx)</li>
       <li>Axios for requests</li>
       <li>Material design</li>
-      <li>SCSS (CSS pre-processor)</li>
+      <li>Styled Components</li>
       <li>TinyMCE rich-text editor</li>
       <li>Vercel for hosting, building & deploying</li>
     </ul>
