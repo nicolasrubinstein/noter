@@ -64,6 +64,7 @@ const EditorContainer = styled.div`
   margin: 0 auto;
   @media (max-width: 500px) {
     width: 95vw;
+    height: 540px;
   }
 `;
 

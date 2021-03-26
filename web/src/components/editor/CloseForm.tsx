@@ -24,6 +24,10 @@ const CloseFormStyled = styled.button`
       background: rgb(218, 216, 216);
       cursor: pointer;
     }
+
+    @media (max-width: 499px) {
+      width: 60px;
+    }
   }
 `;
 
