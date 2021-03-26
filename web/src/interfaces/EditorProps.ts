@@ -1,15 +1,15 @@
 interface EditorProps {
   isSaveLoading: boolean;
-  onClose: any;
+  onClose: Function;
   title: string;
-  setTitle: any;
+  setTitle: Function;
   text: string;
-  setText: any;
-  onSave: any;
-  onDelete: any;
-  isDeleteLoading: boolean | null;
+  setText: Function;
+  onSave: Function;
+  onDelete?: Function;
+  isDeleteLoading?: boolean;
   important: boolean;
-  setImportant: any;
+  setImportant: Function;
 }
 
 export default EditorProps;

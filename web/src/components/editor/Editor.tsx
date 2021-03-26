@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Toggle from "react-toggle";
 import "./react-toggle.scss";
 import styled from "styled-components";
 import CloseForm from "./CloseForm";

@@ -4,7 +4,7 @@ import useLoggedIn from "../../context/LoggedIn";
 import "./Login.scss";
 
 const Login = () => {
-  const { userInfo, setUserInfo, setIsLoggedIn }: any = useLoggedIn();
+  const { setUserInfo, setIsLoggedIn }: any = useLoggedIn();
 
   const responseGoogle = (response: any) => {
     const { profileObj } = response;

@@ -78,8 +78,6 @@ const New = () => {
             });
           }}
           onSave={handleSave}
-          isDeleteLoading={null}
-          onDelete={null}
         />
       )}
     </NewContainer>

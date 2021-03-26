@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import url from "../../url";
 import axios from "axios";
 import useLoggedIn from "../../context/LoggedIn";
@@ -11,17 +11,16 @@ const List = () => {
   const { userInfo }: any = useLoggedIn();
   const { entries, setEntries }: any = useEditor();
 
-  const fetchEntries = async () => {
-    const res = await axios({
-      method: "get",
-      url: `${url}/entries/${userInfo.googleId}`,
-    });
-    setEntries(res.data);
-  };
-
   useEffect(() => {
+    const fetchEntries = async () => {
+      const res = await axios({
+        method: "get",
+        url: `${url}/entries/${userInfo.googleId}`,
+      });
+      setEntries(res.data);
+    };
     fetchEntries();
-  }, []);
+  }, [setEntries, userInfo.googleId]);
 
   return (
     <ListContainer>
