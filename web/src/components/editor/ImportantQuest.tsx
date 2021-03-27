@@ -8,7 +8,7 @@ const ImportantQuest = ({ important, setImportant }: any) => {
     <ImportantQuestStyled>
       <label>Important</label>
       <div>
-        <Toggle />
+        <Toggle important={important} setImportant={setImportant}/>
       </div>
     </ImportantQuestStyled>
   );
