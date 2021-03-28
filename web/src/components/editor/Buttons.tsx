@@ -1,13 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
+interface ButtonsProps {
+  isSaveLoading: boolean;
+  onDelete?: any;
+  isDeleteLoading?: boolean;
+  onSave: any;
+  title: string;
+}
+
 const Buttons = ({
   isSaveLoading,
   onDelete,
   isDeleteLoading,
   onSave,
   title,
-}: any) => {
+}: ButtonsProps) => {
   return (
     <ButtonsStyled>
       <ButtonSave

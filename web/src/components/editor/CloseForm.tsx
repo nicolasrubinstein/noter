@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const CloseForm = ({ onClose }: any) => {
+interface CloseFormProps {
+  onClose: any;
+}
+
+const CloseForm = ({ onClose }: CloseFormProps) => {
   return (
     <CloseFormStyled>
       <img src="assets/close.png" alt="close" width="50" onClick={onClose} />

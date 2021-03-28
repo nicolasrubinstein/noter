@@ -2,7 +2,11 @@ import React from "react";
 import { GoogleLogout } from "react-google-login";
 import styled from "styled-components";
 
-const LogoutButton = ({ userInfo }: any) => {
+interface LogoutButtonProps {
+  userInfo: any;
+}
+
+const LogoutButton = ({ userInfo }: LogoutButtonProps) => {
   return (
     <GoogleLogout
       clientId="150608648503-eba16gnv5g8s78f60s2n28ia6j7g2jkk.apps.googleusercontent.com"

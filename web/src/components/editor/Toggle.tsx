@@ -2,7 +2,12 @@ import Toggle from "react-toggle";
 import React from "react";
 import "./react-toggle.scss";
 
-const ToggleComponent = ({ important, setImportant }: any) => {
+interface ToggleProps {
+  important: boolean;
+  setImportant: any;
+}
+
+const ToggleComponent = ({ important, setImportant }: ToggleProps) => {
   return (
     <Toggle
       defaultChecked={important}

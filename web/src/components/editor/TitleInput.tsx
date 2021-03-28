@@ -1,14 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const TitleInput = ({ title, setTitle }: any) => {
+interface TitleInputProps {
+  title: string;
+  setTitle: any;
+}
+
+const TitleInput = ({ title, setTitle }: TitleInputProps) => {
   return (
     <div style={{ textAlign: "center", marginTop: "-30px" }}>
       <TitleInputStyled
         type="text"
         placeholder="Title"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e: any) => setTitle(e.target.value)}
         maxLength={40}
       />
     </div>

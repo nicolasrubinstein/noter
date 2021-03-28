@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Editor } from "@tinymce/tinymce-react";
 
-const EditorSection = ({ text, setText }: any) => {
+interface EditorSectionProps {
+  text: string;
+  setText: any;
+}
+
+const EditorSection = ({ text, setText }: EditorSectionProps) => {
   return (
     <EditorSectionStyled>
       {(

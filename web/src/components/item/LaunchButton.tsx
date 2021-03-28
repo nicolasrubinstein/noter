@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const LaunchButton = ({ launch }: any) => {
+interface LaunchButtonProps {
+  launch: any;
+}
+
+const LaunchButton = ({ launch }: LaunchButtonProps) => {
   return (
     <LaunchButtonStyled onClick={launch}>
       <img src="assets/eye.png" alt="open" width="30" height="30" />

@@ -3,12 +3,17 @@ import styled from "styled-components";
 import "./react-toggle.scss";
 import Toggle from "./Toggle";
 
-const ImportantQuest = ({ important, setImportant }: any) => {
+interface ImportantQuestProps {
+  important: boolean;
+  setImportant: any;
+}
+
+const ImportantQuest = ({ important, setImportant }: ImportantQuestProps) => {
   return (
     <ImportantQuestStyled>
       <label>Important</label>
       <div>
-        <Toggle important={important} setImportant={setImportant}/>
+        <Toggle important={important} setImportant={setImportant} />
       </div>
     </ImportantQuestStyled>
   );

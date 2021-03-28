@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Important = ({ isImportant }: any) => {
+interface ImportantProps {
+  isImportant: boolean;
+}
+
+const Important = ({ isImportant }: ImportantProps) => {
   return (
     <ImportantStyled>
       {isImportant && (
