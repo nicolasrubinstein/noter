@@ -83,6 +83,7 @@ const Main = () => {
             title={editorAttr.title}
             text={editorAttr.text}
             onClose={() => {
+              if (!window.confirm("Close without saving changes?")) return;
               setShowEditor(false);
               setEditorAttr({ title: "", text: "", id: "", important: false });
             }}

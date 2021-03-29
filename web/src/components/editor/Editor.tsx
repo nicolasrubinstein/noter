@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import "./react-toggle.scss";
 import styled from "styled-components";
-import CloseForm from "./CloseForm";
 import TitleInput from "./TitleInput";
 import ImportantQuest from "./ImportantQuest";
 import EditorSection from "./EditorSection";
 import Buttons from "./Buttons";
 import EditorProps from "../../interfaces/EditorProps";
+import CloseForm from "./CloseForm";
 
-const EDCont = ({
+const EDCont: React.FC<EditorProps> = ({
   isSaveLoading,
   onClose,
   title,
@@ -20,7 +20,7 @@ const EDCont = ({
   isDeleteLoading,
   important,
   setImportant,
-}: EditorProps) => {
+}) => {
   useEffect(() => {
     document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
   }, []);
