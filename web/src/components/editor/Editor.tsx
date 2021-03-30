@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./react-toggle.scss";
 import styled from "styled-components";
 import TitleInput from "./TitleInput";
@@ -24,11 +24,22 @@ const EDCont: React.FC<EditorProps> = ({
   useEffect(() => {
     document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
   }, []);
+  const [hasEdited, setHasEdited] = useState(false);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!count) {
+      setCount(1);
+    } else {
+      setHasEdited(true);
+    }
+    // eslint-disable-next-line
+  }, [text, title, important]);
 
   return (
     <SuperEditor>
       <EditorContainer>
-        <CloseForm onClose={onClose} />
+        <CloseForm onClose={onClose} needsPrompt={hasEdited} />
         <TitleInput title={title} setTitle={setTitle} />
         <ImportantQuest important={important} setImportant={setImportant} />
         <EditorSection text={text} setText={setText} />

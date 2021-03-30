@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Editor } from "@tinymce/tinymce-react";
+import { Editor as Tiny } from "@tinymce/tinymce-react";
 
 interface EditorSectionProps {
   text: string;
@@ -11,7 +11,7 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
   return (
     <EditorSectionStyled>
       {(
-        <Editor
+        <Tiny
           value={text}
           init={{
             height: 300,

@@ -3,12 +3,26 @@ import styled from "styled-components";
 
 interface CloseFormProps {
   onClose: any;
+  needsPrompt: boolean;
 }
 
-const CloseForm = ({ onClose }: CloseFormProps) => {
+const CloseForm = ({ onClose, needsPrompt }: CloseFormProps) => {
+  const handleClose = () => {
+    if (!needsPrompt) {
+      onClose();
+    } else if (window.confirm("Discard changes?")) {
+      onClose();
+    }
+  };
+
   return (
     <CloseFormStyled>
-      <img src="assets/close.png" alt="close" width="50" onClick={onClose} />
+      <img
+        src="assets/close.png"
+        alt="close"
+        width="50"
+        onClick={handleClose}
+      />
     </CloseFormStyled>
   );
 };
