@@ -15,7 +15,7 @@ const getEntries = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const requestedUser = yield User.findOne({ googleId });
     if (requestedUser) {
         const entries = requestedUser.entries;
-        res.json(entries);
+        res.json(entries.reverse());
     }
     else {
         const newUser = new User({ googleId });

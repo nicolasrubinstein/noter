@@ -14,7 +14,7 @@ const getEntries = async (req: express.Request, res: express.Response) => {
   const requestedUser = await User.findOne({ googleId });
   if (requestedUser) {
     const entries = requestedUser.entries;
-    res.json(entries);
+    res.json(entries.reverse());
   } else {
     const newUser = new User({ googleId });
     await newUser.save();
