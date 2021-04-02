@@ -19,8 +19,12 @@ const Header = () => {
           : "rgba(2, 2, 2, 0.671)"
       }
     >
-      <ThemeToggle />
-      <LogoutButton userInfo={userInfo} />
+      <section>
+        <ThemeToggle />
+      </section>
+      <section>
+        <LogoutButton userInfo={userInfo} />
+      </section>
     </HeaderStyled>
   );
 };
@@ -31,9 +35,9 @@ const HeaderStyled = styled.header`
   height: 80px;
   background-color: ${(props: any) => props.bg};
   margin-top: -22px;
+  padding: 0 5vw;
   display: flex;
   justify-content: space-between;
-  padding: 0 4vw;
   align-items: center;
 `;
 

@@ -2,9 +2,11 @@ import React from "react";
 import GoogleLogin from "react-google-login";
 import useLoggedIn from "../../context/LoggedIn";
 import styled from "styled-components";
+import useTheme from "../../context/Theme";
 
 const Login = () => {
   const { setUserInfo, setIsLoggedIn }: any = useLoggedIn();
+  const { theme }: any = useTheme();
 
   const responseGoogle = (response: any) => {
     const { profileObj } = response;
@@ -21,7 +23,11 @@ const Login = () => {
           buttonText="Login"
           onSuccess={responseGoogle}
           render={(renderProps) => (
-            <LoginButton onClick={renderProps.onClick}>
+            <LoginButton
+              onClick={renderProps.onClick}
+              bg={theme === "light" ? "white" : "grey"}
+              txt={theme === "light" ? "black" : "white"}
+            >
               <img src="assets/google.png" alt="google icon" width={20} />
               Log in with Google
             </LoginButton>
@@ -49,7 +55,7 @@ const Container = styled.div`
 const LoginButton = styled.button`
   outline: none;
   margin-top: 50px;
-  background: white;
+  background: ${(props: any) => props.bg};
   border: none;
   width: 20vw;
   height: 50px;
@@ -57,6 +63,7 @@ const LoginButton = styled.button`
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  color: ${(props: any) => props.txt};
 
   @media (max-width: 874px) {
     width: 50vw;

@@ -7,18 +7,13 @@ const ThemeToggle = () => {
   const { theme, setTheme }: any = useTheme();
 
   return (
-    <Toggle txt={theme === "light" ? "black" : "white"}>
+    <Container>
       <ToggleTheme selectedTheme={theme} onChange={setTheme} />
-    </Toggle>
+    </Container>
   );
 };
 
-const Toggle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: ${(props: any) => props.txt};
-  width: 120px;
+const Container = styled.div`
   margin-top: 15px;
 `;
 

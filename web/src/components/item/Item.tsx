@@ -28,7 +28,7 @@ const Item = ({ text, title, id, isImportant }: ItemProps) => {
         bg={theme === "light" ? "white" : "grey"}
       >
         <Important isImportant={isImportant} />
-        <h3>{title}</h3>
+        <ItemLabel>{title}</ItemLabel>
         <LaunchButton launch={launchEditor} />
       </ItemStyled>
     </ItemSuper>
@@ -62,6 +62,11 @@ const ItemStyled = styled.div`
   @media (max-width: 600px) {
     width: 90vw;
   }
+`;
+
+const ItemLabel = styled.h3`
+  word-wrap: break-word;
+  width: 60vw;
 `;
 
 export default Item;
