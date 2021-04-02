@@ -3,6 +3,7 @@ import useEditor from "../../context/Editor";
 import styled from "styled-components";
 import LaunchButton from "./LaunchButton";
 import Important from "./Important";
+import useTheme from "../../context/Theme";
 
 interface ItemProps {
   text: string;
@@ -13,6 +14,7 @@ interface ItemProps {
 
 const Item = ({ text, title, id, isImportant }: ItemProps) => {
   const { setShowEditor, setEditorAttr }: any = useEditor();
+  const { theme }: any = useTheme();
 
   const launchEditor = () => {
     setEditorAttr({ text, title, id, important: isImportant });
@@ -21,7 +23,10 @@ const Item = ({ text, title, id, isImportant }: ItemProps) => {
 
   return (
     <ItemSuper>
-      <ItemStyled onClick={launchEditor}>
+      <ItemStyled
+        onClick={launchEditor}
+        bg={theme === "light" ? "white" : "grey"}
+      >
         <Important isImportant={isImportant} />
         <h3>{title}</h3>
         <LaunchButton launch={launchEditor} />
@@ -39,13 +44,13 @@ const ItemStyled = styled.div`
   margin: 0 auto;
   cursor: pointer;
   width: 70vw;
-  background: white;
+  background: ${(props: any) => props.bg};
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
   border-radius: 5px;
-  border-left: 10px solid white;
+  border-left: 10px solid ${(props: any) => props.bg};
 
   &:hover {
     border-left: 10px solid orange;

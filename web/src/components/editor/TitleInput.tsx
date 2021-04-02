@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useTheme from "../../context/Theme";
 
 interface TitleInputProps {
   title: string;
@@ -7,6 +8,8 @@ interface TitleInputProps {
 }
 
 const TitleInput = ({ title, setTitle }: TitleInputProps) => {
+  const { theme }: any = useTheme();
+
   return (
     <div style={{ textAlign: "center", marginTop: "-30px" }}>
       <TitleInputStyled
@@ -15,12 +18,14 @@ const TitleInput = ({ title, setTitle }: TitleInputProps) => {
         value={title}
         onChange={(e: any) => setTitle(e.target.value)}
         maxLength={40}
+        bg={theme === "light" ? "white" : "#919191"}
       />
     </div>
   );
 };
 
 const TitleInputStyled = styled.input`
+  background-color: ${(props: any) => props.bg};
   width: 30vw;
   height: 40px;
   border: 1px solid black;
@@ -33,6 +38,9 @@ const TitleInputStyled = styled.input`
   @media (max-width: 499px) {
     margin-top: 25px;
     width: 80vw;
+  }
+  &::placeholder {
+    color: rgba(36, 36, 36, 0.692);
   }
 `;
 

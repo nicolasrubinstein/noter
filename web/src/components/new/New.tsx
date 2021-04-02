@@ -55,7 +55,7 @@ const New = () => {
     <NewContainer>
       <StyledNew onClick={() => setShowEditor(true)}>
         <img src="assets/add.png" alt="add" width="40" />
-        New note
+        <p>New note</p>
       </StyledNew>
 
       {showEditor && (
@@ -100,7 +100,18 @@ const StyledNew = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
+  img {
+    margin-top: 7px;
+  }
+  img,
+  p {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+  }
   &:hover {
     background: rgb(190, 144, 58);
     cursor: pointer;

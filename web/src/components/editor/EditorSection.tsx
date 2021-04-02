@@ -17,6 +17,7 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
             height: 300,
             width: "70vw",
             menubar: false,
+            // theme: "advanced",
             plugins: [
               "advlist autolink lists link image charmap print preview anchor",
               "searchreplace visualblocks code fullscreen",

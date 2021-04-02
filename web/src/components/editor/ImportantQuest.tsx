@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useTheme from "../../context/Theme";
 import "./react-toggle.scss";
 import Toggle from "./Toggle";
 
@@ -9,8 +10,9 @@ interface ImportantQuestProps {
 }
 
 const ImportantQuest = ({ important, setImportant }: ImportantQuestProps) => {
+  const { theme }: any = useTheme();
   return (
-    <ImportantQuestStyled>
+    <ImportantQuestStyled txt={theme === "light" ? "black" : "white"}>
       <label>Important</label>
       <div>
         <Toggle important={important} setImportant={setImportant} />
@@ -30,6 +32,7 @@ const ImportantQuestStyled = styled.div`
 
   label {
     font-size: 18px;
+    color: ${(props: any) => props.txt};
   }
   @media (max-width: 900px) {
     width: 50vw;

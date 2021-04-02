@@ -1,17 +1,24 @@
 import React from "react";
 import { GoogleLogout } from "react-google-login";
 import styled from "styled-components";
+import useTheme from "../../context/Theme";
 
 interface LogoutButtonProps {
   userInfo: any;
 }
 
 const LogoutButton = ({ userInfo }: LogoutButtonProps) => {
+  const { theme }: any = useTheme();
+
   return (
     <GoogleLogout
       clientId="150608648503-eba16gnv5g8s78f60s2n28ia6j7g2jkk.apps.googleusercontent.com"
       render={(renderProps: any) => (
-        <LogoutButtonStyled onClick={renderProps.onClick}>
+        <LogoutButtonStyled
+          onClick={renderProps.onClick}
+          bg={theme === "light" ? "#e9e9e9" : "grey"}
+          txt={theme === "light" ? "black" : "white"}
+        >
           <img src={userInfo.imageUrl} alt="google icon" width={35} />
           <p>Log out</p>
         </LogoutButtonStyled>
@@ -28,7 +35,7 @@ const LogoutButtonStyled = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: ${(props: any) => props.bg};
   border: none;
   cursor: pointer;
   padding: 0 2vw;
@@ -36,9 +43,22 @@ const LogoutButtonStyled = styled.button`
   margin-right: 5vw;
   img {
     border-radius: 50%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
   }
   p {
     font-size: 15px;
+    color: ${(props: any) => props.txt};
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
   }
 
   @media (max-width: 600px) {

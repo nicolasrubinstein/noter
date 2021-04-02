@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useTheme from "../../context/Theme";
 
 interface CloseFormProps {
   onClose: any;
@@ -7,6 +8,8 @@ interface CloseFormProps {
 }
 
 const CloseForm = ({ onClose, needsPrompt }: CloseFormProps) => {
+  const { theme }: any = useTheme();
+
   const handleClose = () => {
     if (!needsPrompt) {
       onClose();
@@ -16,7 +19,7 @@ const CloseForm = ({ onClose, needsPrompt }: CloseFormProps) => {
   };
 
   return (
-    <CloseFormStyled>
+    <CloseFormStyled bg={theme === "light" ? "transparent" : "rgb(87, 87, 87)"}>
       <img
         src="assets/close.png"
         alt="close"
@@ -38,8 +41,11 @@ const CloseFormStyled = styled.button`
     margin: 3px;
     padding: 10px;
     border-radius: 50%;
+    background: ${(props: any) => props.bg};
+
     &:hover {
-      background: rgb(218, 216, 216);
+      ${(props: any) =>
+        props.bg === "transparent" && "background:rgb(218, 216, 216);"}
       cursor: pointer;
     }
 

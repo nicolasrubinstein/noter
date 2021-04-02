@@ -7,26 +7,15 @@ import EditorSection from "./EditorSection";
 import Buttons from "./Buttons";
 import EditorProps from "../../interfaces/EditorProps";
 import CloseForm from "./CloseForm";
+import useTheme from "../../context/Theme";
 
-const EDCont: React.FC<EditorProps> = ({
-  isSaveLoading,
-  onClose,
-  title,
-  setTitle,
-  text,
-  setText,
-  onSave,
-  onDelete,
-  isDeleteLoading,
-  important,
-  setImportant,
-}) => {
+const EDCont: React.FC<EditorProps> = (props) => {
   useEffect(() => {
     document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
   }, []);
   const [hasEdited, setHasEdited] = useState(false);
   const [count, setCount] = useState(0);
-
+  const { theme }: any = useTheme();
   useEffect(() => {
     if (!count) {
       setCount(1);
@@ -34,21 +23,30 @@ const EDCont: React.FC<EditorProps> = ({
       setHasEdited(true);
     }
     // eslint-disable-next-line
-  }, [text, title, important]);
+  }, [props.text, props.title, props.important]);
 
   return (
     <SuperEditor>
-      <EditorContainer>
-        <CloseForm onClose={onClose} needsPrompt={hasEdited} />
-        <TitleInput title={title} setTitle={setTitle} />
-        <ImportantQuest important={important} setImportant={setImportant} />
-        <EditorSection text={text} setText={setText} />
+      <EditorContainer
+        bg={
+          theme === "light"
+            ? "rgb(255, 255, 255, 0.9)"
+            : "rgba(31, 30, 30, 0.9)"
+        }
+      >
+        <CloseForm onClose={props.onClose} needsPrompt={hasEdited} />
+        <TitleInput title={props.title} setTitle={props.setTitle} />
+        <ImportantQuest
+          important={props.important}
+          setImportant={props.setImportant}
+        />
+        <EditorSection text={props.text} setText={props.setText} />
         <Buttons
-          isSaveLoading={isSaveLoading}
-          isDeleteLoading={isDeleteLoading}
-          onSave={onSave}
-          onDelete={onDelete}
-          title={title}
+          isSaveLoading={props.isSaveLoading}
+          isDeleteLoading={props.isDeleteLoading}
+          onSave={props.onSave}
+          onDelete={props.onDelete}
+          title={props.title}
         />
       </EditorContainer>
     </SuperEditor>
@@ -68,7 +66,7 @@ const SuperEditor = styled.div`
 `;
 
 const EditorContainer = styled.div`
-  background: rgb(255, 255, 255, 0.9);
+  background: ${(props: any) => props.bg};
   height: 520px;
   width: 80vw;
   margin: 0 auto;
