@@ -12,7 +12,12 @@ const App = () => {
   const [theme, setTheme] = useState<string>("dark");
 
   useEffect(() => {
-    const newTheme = localStorage.getItem("theme") || "light";
+    const fetchedTheme = localStorage.getItem("theme");
+    if (fetchedTheme !== "light" && fetchedTheme !== "dark") {
+      setTheme("light");
+      return;
+    }
+    const newTheme = fetchedTheme || "light";
     setTheme(newTheme);
   }, []);
 
