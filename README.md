@@ -1,4 +1,4 @@
-# MyNoter
+<h1>Noter</h1>
 <h4>Web application to save notes and edit them with a Rich Text Editor. </h4>
 <p>Sign-in via Google using oAuth</p>
 <a target="_blank" href="https://mynoter.vercel.app">Use the application</a>
