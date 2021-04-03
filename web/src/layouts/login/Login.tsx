@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <Container>
-      <h1>Your notes, anywhere</h1>
+      <H1 txt={theme === "light" ? "black" : "white"}>Your notes, anywhere</H1>
       <ButtonContainer>
         <GoogleLogin
           clientId="150608648503-eba16gnv5g8s78f60s2n28ia6j7g2jkk.apps.googleusercontent.com"
@@ -29,7 +29,9 @@ const Login = () => {
               txt={theme === "light" ? "black" : "white"}
             >
               <img src="assets/google.png" alt="google icon" width={20} />
-              Log in with Google
+              <P txt={theme === "light" ? "black" : "white"}>
+                Log in with Google
+              </P>
             </LoginButton>
           )}
           onFailure={(response) => {
@@ -74,6 +76,15 @@ const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+const H1 = styled.h1`
+  color: ${(props: any) => props.txt};
+  font-weight: 400;
+`;
+
+const P = styled.p`
+  color: ${(props: any) => props.txt};
 `;
 
 export default Login;
