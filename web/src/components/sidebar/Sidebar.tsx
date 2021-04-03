@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { TweenLite } from "gsap";
+import gsap from "gsap";
 import useTheme from "../../context/Theme";
 import CloseBar from "./CloseBar";
 import useOutsideClick from "../../useOutsideClick";
@@ -21,7 +21,7 @@ const Sidebar: React.FC<Props> = ({ onClose }) => {
   useOutsideClick(bar, onClose);
 
   useEffect(() => {
-    TweenLite.from(document.querySelector("#bar"), 0.3, {
+    gsap.from("#bar", 0.3, {
       x: 100,
       autoAlpha: 0,
     });
