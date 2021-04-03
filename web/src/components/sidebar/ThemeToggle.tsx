@@ -8,6 +8,7 @@ const ThemeToggle = () => {
 
   return (
     <Container>
+      <Label txt={theme === "light" ? "black" : "white"}>Theme</Label>
       <ToggleTheme selectedTheme={theme} onChange={setTheme} />
     </Container>
   );
@@ -15,6 +16,16 @@ const ThemeToggle = () => {
 
 const Container = styled.div`
   margin-top: 15px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const Label = styled.label`
+  font-size: 20px;
+  margin-right: 3vw;
+  color: ${(props: any) => props.txt};
 `;
 
 export default ThemeToggle;

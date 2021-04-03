@@ -40,7 +40,6 @@ const LogoutButtonStyled = styled.button`
   cursor: pointer;
   padding: 0 2vw;
   border-radius: 3px;
-  margin-right: 5vw;
   img {
     border-radius: 50%;
     -webkit-touch-callout: none; /* iOS Safari */

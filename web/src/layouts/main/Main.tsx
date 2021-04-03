@@ -8,7 +8,6 @@ import axios from "axios";
 import url from "../../url";
 import New from "../../components/new/New";
 import Sidebar from "../../components/sidebar/Sidebar";
-import OpenSidebar from "../../components/sidebar/OpenSidebar";
 
 const Main = () => {
   const [showEditor, setShowEditor] = useState<boolean>(false);
@@ -99,13 +98,9 @@ const Main = () => {
             }
           />
         )}
-        {showSidebar && <Sidebar />}
-        <OpenSidebar
-          toggle={() => setShowSidebar(!showSidebar)}
-          isOpen={showSidebar}
-        />
-        <Header />
+        {showSidebar && <Sidebar onClose={() => setShowSidebar(false)} />}
 
+        <Header openSidebar={() => setShowSidebar(true)} />
         <New />
         <List />
       </EditorContext.Provider>

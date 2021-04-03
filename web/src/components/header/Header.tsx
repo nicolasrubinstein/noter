@@ -1,14 +1,16 @@
 import React from "react";
-import useLoggedIn from "../../context/LoggedIn";
 import styled from "styled-components";
-import LogoutButton from "./LogoutButton";
+import useLoggedIn from "../../context/LoggedIn";
 import useTheme from "../../context/Theme";
-import ThemeToggle from "./ThemeToggle";
+import OpenSidebar from "./OpenSidebar";
 
-const Header = () => {
-  const { userInfo }: any = useLoggedIn();
+interface Props {
+  openSidebar: any;
+}
 
+const Header: React.FC<Props> = ({ openSidebar }) => {
   const { theme }: any = useTheme();
+  const { userInfo }: any = useLoggedIn();
 
   return (
     <HeaderStyled
@@ -19,12 +21,11 @@ const Header = () => {
           : "rgba(2, 2, 2, 0.671)"
       }
     >
-      <section>
-        <ThemeToggle />
-      </section>
-      <section>
-        <LogoutButton userInfo={userInfo} />
-      </section>
+      <OpenSidebar onOpen={openSidebar} />
+      <Heading txt={theme === "light" ? "black" : "white"}>
+        {userInfo.givenName}'s notes
+      </Heading>
+      <div></div>
     </HeaderStyled>
   );
 };
@@ -37,8 +38,17 @@ const HeaderStyled = styled.header`
   margin-top: -22px;
   padding: 0 5vw;
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  position: relative;
+  z-index: 0;
   justify-content: space-between;
   align-items: center;
+`;
+
+const Heading = styled.h1`
+  margin-top: 35px;
+  color: ${(props: any) => props.txt};
 `;
 
 export default Header;
