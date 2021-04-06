@@ -15,7 +15,7 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
           value={text}
           init={{
             height: 300,
-            width: "70vw",
+            width: window.innerWidth > 499 ? "70vw" : "100vw",
             menubar: false,
             // theme: "advanced",
             plugins: [

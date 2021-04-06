@@ -6,6 +6,7 @@ import useEditor from "../../context/Editor";
 import Entry from "../../interfaces/Entry";
 import Item from "../item/Item";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
 
 const List = () => {
   const { userInfo }: any = useLoggedIn();
@@ -24,6 +25,9 @@ const List = () => {
 
   return (
     <ListContainer>
+      {!entries && (
+        <Loader type="BallTriangle" color="orange" height={100} width={100} />
+      )}
       {entries?.map((entry: Entry) => (
         <Item
           text={entry.text}
