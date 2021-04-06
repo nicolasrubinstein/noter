@@ -26,7 +26,9 @@ const List = () => {
   return (
     <ListContainer>
       {!entries && (
-        <Loader type="BallTriangle" color="orange" height={100} width={100} />
+        <LoaderContainer>
+          <Loader type="BallTriangle" color="orange" height={100} width={100} />
+        </LoaderContainer>
       )}
       {entries?.map((entry: Entry) => (
         <Item
@@ -45,6 +47,11 @@ const ListContainer = styled.ul`
   list-style-type: none;
   margin-top: 27px;
   text-align: center;
+`;
+
+const LoaderContainer = styled.div`
+  width: 100vw;
+  margin-left: -40px;
 `;
 
 export default List;
