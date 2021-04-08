@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Editor from "../editor/Editor";
 import url from "../../url";
 import axios from "axios";
-import useLoggedIn from "../../context/LoggedIn";
-import useEditor from "../../context/Editor";
+import useLoggedIn, { LoggedInHook } from "../../context/LoggedIn";
+import useEditor, { EditorHook } from "../../context/Editor";
 import styled from "styled-components";
 
 const New = () => {
@@ -12,10 +12,10 @@ const New = () => {
     text: string;
     isImportant: boolean;
   }
-  const { userInfo }: any = useLoggedIn();
+  const { userInfo }: LoggedInHook = useLoggedIn();
   const [showEditor, setShowEditor] = useState(false);
   const [isEditorSaveLoading, setIsEditorSaveLoading] = useState(false);
-  const { setEntries }: any = useEditor();
+  const { setEntries }: EditorHook = useEditor();
 
   const [newEntry, setNewEntry] = useState<PreEntry>({
     title: "",
@@ -25,9 +25,9 @@ const New = () => {
   const fetchEntries = async () => {
     const res = await axios({
       method: "get",
-      url: `${url}/entries/${userInfo.googleId}`,
+      url: `${url}/entries/${userInfo?.googleId}`,
     });
-    setEntries(res.data);
+    if (setEntries) setEntries(res.data);
   };
 
   const handleSave = async () => {
@@ -35,7 +35,7 @@ const New = () => {
     await axios({
       method: "post",
       data: {
-        googleId: userInfo.googleId,
+        googleId: userInfo?.googleId,
         text: newEntry.text,
         title: newEntry.title,
         isImportant: newEntry.isImportant,
@@ -100,6 +100,7 @@ const StyledNew = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  /* margin-left: 40px; */
   img {
     margin-top: 7px;
   }

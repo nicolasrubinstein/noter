@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap, { TweenLite } from "gsap";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 import CloseBar from "./CloseBar";
 import useOutsideClick from "../../useOutsideClick";
 import ThemeToggle from "./ThemeToggle";
-import useLoggedIn from "../../context/LoggedIn";
+import useLoggedIn, { LoggedInHook } from "../../context/LoggedIn";
 import LogoutButton from "./LogoutButton";
 
 gsap.registerPlugin(TweenLite);
@@ -15,8 +15,8 @@ interface Props {
 }
 
 const Sidebar: React.FC<Props> = ({ onClose }) => {
-  const { theme }: any = useTheme();
-  const { userInfo }: any = useLoggedIn();
+  const { theme }: ThemeHook = useTheme();
+  const { userInfo }: LoggedInHook = useLoggedIn();
 
   const bar = useRef(null);
 

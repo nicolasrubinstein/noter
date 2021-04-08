@@ -8,6 +8,7 @@ import axios from "axios";
 import url from "../../url";
 import New from "../../components/new/New";
 import Sidebar from "../../components/sidebar/Sidebar";
+import Entry from "../../interfaces/Entry";
 
 const Main = () => {
   const [showEditor, setShowEditor] = useState<boolean>(false);
@@ -21,7 +22,7 @@ const Main = () => {
   const [isEditorSaveLoading, setIsEditorSaveLoading] = useState(false);
   const [isEditorDeleteLoading, setIsEditorDeleteLoading] = useState(false);
 
-  const [entries, setEntries] = useState(null);
+  const [entries, setEntries] = useState<Entry[] | undefined>();
 
   const { userInfo }: any = useLoggedIn();
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Editor as Tiny } from "@tinymce/tinymce-react";
 
@@ -8,28 +8,30 @@ interface EditorSectionProps {
 }
 
 const EditorSection = ({ text, setText }: EditorSectionProps) => {
+  const [hasLoaded, setHasLoaded] = useState(false);
   return (
     <EditorSectionStyled>
-      {(
-        <Tiny
-          value={text}
-          init={{
-            height: 300,
-            width: window.innerWidth > 499 ? "70vw" : "100vw",
-            menubar: false,
-            // theme: "advanced",
-            plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
-            ],
-            toolbar:
-              "undo redo | formatselect | bold italic backcolor |alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help",
-          }}
-          onEditorChange={(content) => setText(content)}
-          apiKey="82jfijyod37iho52z28udyqd6yrl71w9xlbwn2hp4c5nxcm2"
-        />
-      ) || "Loading Editor..."}
+      <Tiny
+        value={text}
+        init={{
+          height: 300,
+          width: window.innerWidth > 499 ? "70vw" : "100vw",
+          menubar: false,
+          // theme: "advanced",
+          plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table paste code help wordcount",
+          ],
+          toolbar:
+            "undo redo | formatselect | bold italic backcolor |alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help",
+        }}
+        onEditorChange={(content) => setText(content)}
+        onBeforeSetContent={() => setHasLoaded(true)}
+        apiKey="82jfijyod37iho52z28udyqd6yrl71w9xlbwn2hp4c5nxcm2"
+      />
+
+      {!hasLoaded && <Loading>Loading editor...</Loading>}
     </EditorSectionStyled>
   );
 };
@@ -37,6 +39,13 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
 const EditorSectionStyled = styled.section`
   display: flex;
   justify-content: center;
+  height: 300px;
+`;
+
+const Loading = styled.h3`
+  width: 100%;
+  text-align: center;
+  margin-left: -160px;
 `;
 
 export default EditorSection;

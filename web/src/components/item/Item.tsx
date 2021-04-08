@@ -1,9 +1,9 @@
 import React from "react";
-import useEditor from "../../context/Editor";
+import useEditor, { EditorHook } from "../../context/Editor";
 import styled from "styled-components";
 import LaunchButton from "./LaunchButton";
 import Important from "./Important";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 
 interface ItemProps {
   text: string;
@@ -13,8 +13,8 @@ interface ItemProps {
 }
 
 const Item = ({ text, title, id, isImportant }: ItemProps) => {
-  const { setShowEditor, setEditorAttr }: any = useEditor();
-  const { theme }: any = useTheme();
+  const { setShowEditor, setEditorAttr }: EditorHook = useEditor();
+  const { theme }: ThemeHook = useTheme();
 
   const launchEditor = () => {
     setEditorAttr({ text, title, id, important: isImportant });

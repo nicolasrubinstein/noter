@@ -8,7 +8,14 @@ import { ThemeContext } from "./context/Theme";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  const [userInfo, setUserInfo] = useState<UserInfo | undefined>();
+  const [userInfo, setUserInfo] = useState<UserInfo>({
+    googleId: "",
+    email: "",
+    givenName: "",
+    familyName: "",
+    imageUrl: "",
+    name: "",
+  });
   const [theme, setTheme] = useState<string>("dark");
 
   useEffect(() => {

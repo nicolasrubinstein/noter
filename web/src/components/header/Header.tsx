@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import useLoggedIn from "../../context/LoggedIn";
-import useTheme from "../../context/Theme";
+import useLoggedIn, { LoggedInHook } from "../../context/LoggedIn";
+import useTheme, { ThemeHook } from "../../context/Theme";
 import OpenSidebar from "./OpenSidebar";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ openSidebar }) => {
-  const { theme }: any = useTheme();
-  const { userInfo }: any = useLoggedIn();
+  const { theme }: ThemeHook = useTheme();
+  const { userInfo }: LoggedInHook = useLoggedIn();
 
   return (
     <HeaderStyled
@@ -23,7 +23,7 @@ const Header: React.FC<Props> = ({ openSidebar }) => {
     >
       <OpenSidebar onOpen={openSidebar} />
       <Heading txt={theme === "light" ? "black" : "white"}>
-        {userInfo.givenName}'s notes
+        {userInfo?.givenName}'s notes
       </Heading>
       <div></div>
     </HeaderStyled>

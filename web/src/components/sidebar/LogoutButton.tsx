@@ -1,14 +1,14 @@
 import React from "react";
 import { GoogleLogout } from "react-google-login";
 import styled from "styled-components";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 
 interface LogoutButtonProps {
   userInfo: any;
 }
 
 const LogoutButton = ({ userInfo }: LogoutButtonProps) => {
-  const { theme }: any = useTheme();
+  const { theme }: ThemeHook = useTheme();
 
   return (
     <GoogleLogout

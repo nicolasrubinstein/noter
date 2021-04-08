@@ -7,7 +7,7 @@ import EditorSection from "./EditorSection";
 import Buttons from "./Buttons";
 import EditorProps from "../../interfaces/EditorProps";
 import CloseForm from "./CloseForm";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 
 const EDCont: React.FC<EditorProps> = (props) => {
   useEffect(() => {
@@ -15,7 +15,7 @@ const EDCont: React.FC<EditorProps> = (props) => {
   }, []);
   const [hasEdited, setHasEdited] = useState(false);
   const [count, setCount] = useState(0);
-  const { theme }: any = useTheme();
+  const { theme }: ThemeHook = useTheme();
   useEffect(() => {
     if (!count) {
       setCount(1);

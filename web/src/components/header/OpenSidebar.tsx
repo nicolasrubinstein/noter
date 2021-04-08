@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 interface Props {
   onOpen: any;
 }
 
 const OpenSidebar: React.FC<Props> = ({ onOpen }) => {
-  const { theme }: any = useTheme();
+  const { theme }: ThemeHook = useTheme();
 
   return (
     <Open onClick={onOpen}>

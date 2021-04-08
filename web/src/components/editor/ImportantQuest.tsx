@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 import "./react-toggle.scss";
 import Toggle from "./Toggle";
 
@@ -10,7 +10,7 @@ interface ImportantQuestProps {
 }
 
 const ImportantQuest = ({ important, setImportant }: ImportantQuestProps) => {
-  const { theme }: any = useTheme();
+  const { theme }: ThemeHook = useTheme();
   return (
     <ImportantQuestStyled txt={theme === "light" ? "black" : "white"}>
       <label>Important</label>

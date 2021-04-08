@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useTheme from "../../context/Theme";
+import useTheme, { ThemeHook } from "../../context/Theme";
 
 interface TitleInputProps {
   title: string;
@@ -8,7 +8,7 @@ interface TitleInputProps {
 }
 
 const TitleInput = ({ title, setTitle }: TitleInputProps) => {
-  const { theme }: any = useTheme();
+  const { theme }: ThemeHook = useTheme();
 
   return (
     <div style={{ textAlign: "center", marginTop: "-30px" }}>

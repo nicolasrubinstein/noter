@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
 import url from "../../url";
 import axios from "axios";
-import useLoggedIn from "../../context/LoggedIn";
-import useEditor from "../../context/Editor";
+import useLoggedIn, { LoggedInHook } from "../../context/LoggedIn";
+import useEditor, { EditorHook } from "../../context/Editor";
 import Entry from "../../interfaces/Entry";
 import Item from "../item/Item";
 import styled from "styled-components";
 import Loader from "react-loader-spinner";
+import Empty from "./Empty";
 
 const List = () => {
-  const { userInfo }: any = useLoggedIn();
-  const { entries, setEntries }: any = useEditor();
+  const { userInfo }: LoggedInHook = useLoggedIn();
+  const { entries, setEntries }: EditorHook = useEditor();
 
   useEffect(() => {
     const fetchEntries = async () => {
       const res = await axios({
         method: "get",
-        url: `${url}/entries/${userInfo.googleId}`,
+        url: `${url}/entries/${userInfo?.googleId}`,
       });
-      setEntries(res.data);
+      if (setEntries) setEntries(res.data);
     };
     fetchEntries();
-  }, [setEntries, userInfo.googleId]);
+  }, [setEntries, userInfo?.googleId]);
 
   return (
     <ListContainer>
@@ -39,6 +40,7 @@ const List = () => {
           isImportant={entry.isImportant}
         />
       ))}
+      {entries && !entries.length && <Empty />}
     </ListContainer>
   );
 };
@@ -47,6 +49,7 @@ const ListContainer = styled.ul`
   list-style-type: none;
   margin-top: 27px;
   text-align: center;
+  margin-right: 40px;
 `;
 
 const LoaderContainer = styled.div`

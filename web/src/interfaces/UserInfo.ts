@@ -1,5 +1,5 @@
 interface UserInfo {
-  googlId?: string;
+  googleId?: string;
   email?: string;
   givenName?: string;
   familyName?: string;
