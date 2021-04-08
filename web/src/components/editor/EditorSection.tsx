@@ -19,7 +19,6 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
           height: 300,
           width: window.innerWidth > 499 ? "70vw" : "100vw",
           menubar: false,
-          // theme: "advanced",
           plugins: [
             "advlist autolink lists link image charmap print preview anchor",
             "searchreplace visualblocks code fullscreen",
@@ -28,7 +27,7 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
           toolbar:
             "undo redo | formatselect | bold italic backcolor |alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help",
         }}
-        onEditorChange={(content) => setText(content)}
+        onEditorChange={(content: string) => setText(content)}
         onBeforeSetContent={() => setHasLoaded(true)}
         apiKey="82jfijyod37iho52z28udyqd6yrl71w9xlbwn2hp4c5nxcm2"
       />

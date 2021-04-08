@@ -20,13 +20,9 @@ const CloseForm = ({ onClose, needsPrompt }: CloseFormProps) => {
 
   return (
     <CloseFormStyled bg={theme === "light" ? "transparent" : "rgb(87, 87, 87)"}>
-      {/* <img
-        src="assets/close.png"
-        alt="close"
-        width="50"
-        onClick={handleClose}
-      /> */}
-      <Cross onClick={handleClose}>❌</Cross>
+      <Cross onClick={handleClose}>
+        <img src="/assets/close.svg" alt="close" width="50" height="50" />
+      </Cross>
     </CloseFormStyled>
   );
 };
@@ -59,11 +55,8 @@ const CloseFormStyled = styled.div`
 `;
 
 const Cross = styled.button`
-  background: transparent;
+  background: none;
   border: none;
-  height: 30px;
-  font-size: 30px;
-  cursor: pointer;
 `;
 
 export default CloseForm;

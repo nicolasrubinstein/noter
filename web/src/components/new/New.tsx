@@ -54,7 +54,7 @@ const New = () => {
   return (
     <NewContainer>
       <StyledNew onClick={() => setShowEditor(true)}>
-        <img src="assets/add.png" alt="add" width="40" />
+        <img src="assets/add.svg" alt="add" width="40" />
         <p>New note</p>
       </StyledNew>
 

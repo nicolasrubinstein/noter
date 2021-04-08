@@ -28,7 +28,7 @@ const Login = () => {
               bg={theme === "light" ? "white" : "grey"}
               txt={theme === "light" ? "black" : "white"}
             >
-              <img src="assets/google.png" alt="google icon" width={20} />
+              <img src="assets/google.svg" alt="google icon" width={20} />
               <P txt={theme === "light" ? "black" : "white"}>
                 Log in with Google
               </P>

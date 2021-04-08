@@ -8,7 +8,7 @@ const CloseBar: React.FC<Props> = ({ close }) => {
   return (
     <Close>
       <Btn onClick={close}>
-        <img src="assets/close.png" alt="close" width="25" height="25" />
+        <img src="assets/close.svg" alt="close" width="25" height="25" />
       </Btn>
     </Close>
   );

@@ -9,7 +9,7 @@ const Important = ({ isImportant }: ImportantProps) => {
   return (
     <ImportantStyled>
       {isImportant && (
-        <img src="assets/warning.png" alt="important" width="30" />
+        <img src="assets/warning.svg" alt="important" width="30" />
       )}
     </ImportantStyled>
   );

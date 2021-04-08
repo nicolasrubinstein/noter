@@ -32,6 +32,7 @@ const Line = styled.div`
   width: 40px;
   height: 3px;
   background: ${(props: any) => props.color};
+  border-radius: 10px;
 `;
 
 export default OpenSidebar;

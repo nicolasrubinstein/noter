@@ -6,7 +6,9 @@ const Empty = () => {
 
   return (
     <Container>
-      <Arrow txt={theme === "light" ? "black" : "rgb(189, 178, 178)"}>⬆</Arrow>
+      <Arrow txt={theme === "light" ? "black" : "rgb(189, 178, 178)"}>
+        <img src="/assets/up-arrow.svg" alt="up" width="60" height="60" />
+      </Arrow>
       <Message txt={theme === "light" ? "black" : "rgb(189, 178, 178)"}>
         Start by adding a few notes!
       </Message>
@@ -14,13 +16,11 @@ const Empty = () => {
   );
 };
 
-const Container = styled.div`
-  margin-top: -30px;
-`;
+const Container = styled.div``;
 
 const Arrow = styled.h1`
   color: ${(props: any) => props.txt};
-  font-size: 70px;
+  font-size: 40px;
   padding: 0;
   margin: 0;
 `;

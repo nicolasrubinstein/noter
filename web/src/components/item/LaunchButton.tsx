@@ -8,7 +8,7 @@ interface LaunchButtonProps {
 const LaunchButton = ({ launch }: LaunchButtonProps) => {
   return (
     <LaunchButtonStyled onClick={launch}>
-      <img src="assets/eye.png" alt="open" width="30" height="30" />
+      <img src="assets/eye.svg" alt="open" width="30" height="30" />
     </LaunchButtonStyled>
   );
 };
