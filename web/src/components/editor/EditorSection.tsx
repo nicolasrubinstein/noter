@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Editor as Tiny } from "@tinymce/tinymce-react";
+import useTheme, { ThemeHook } from "../../context/Theme";
 
 interface EditorSectionProps {
   text: string;
@@ -9,6 +10,7 @@ interface EditorSectionProps {
 
 const EditorSection = ({ text, setText }: EditorSectionProps) => {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const { theme }: ThemeHook = useTheme();
   return (
     <EditorSectionStyled>
       <Tiny
@@ -31,7 +33,11 @@ const EditorSection = ({ text, setText }: EditorSectionProps) => {
         apiKey="82jfijyod37iho52z28udyqd6yrl71w9xlbwn2hp4c5nxcm2"
       />
 
-      {!hasLoaded && <Loading>Loading editor...</Loading>}
+      {!hasLoaded && (
+        <Loading txt={theme === "light" ? "black" : "white"}>
+          Loading editor...
+        </Loading>
+      )}
     </EditorSectionStyled>
   );
 };
@@ -46,6 +52,7 @@ const Loading = styled.h3`
   width: 100%;
   text-align: center;
   margin-left: -160px;
+  color: ${(props: any) => props.txt};
 `;
 
 export default EditorSection;
