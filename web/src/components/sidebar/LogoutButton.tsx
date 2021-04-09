@@ -30,7 +30,7 @@ const LogoutButton = ({ userInfo }: LogoutButtonProps) => {
 
 const LogoutButtonStyled = styled.button`
   margin-top: 15px;
-  width: 20vw;
+  width: 200px;
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -42,27 +42,15 @@ const LogoutButtonStyled = styled.button`
   border-radius: 3px;
   img {
     border-radius: 50%;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
   }
   p {
     font-size: 15px;
     color: ${(props: any) => props.txt};
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none;
   }
 
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     width: 40vw;
-  }
+  } */
 `;
 
 export default LogoutButton;

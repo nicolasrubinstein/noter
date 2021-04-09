@@ -46,16 +46,16 @@ const ButtonsStyled = styled.div`
 `;
 
 const Button = styled.button`
-  width: 20vw;
+  width: 200px;
   height: 35px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   font-size: 18px;
 
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     width: 30vw;
-  }
+  } */
 `;
 
 const ButtonDelete = styled(Button)`
